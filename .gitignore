@@ -1,0 +1,27 @@
+# Environment
+.env
+*.env
+
+# Python
+backend/.venv/
+backend/__pycache__/
+backend/**/__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.pytest_cache/
+
+# Google OAuth token (written at runtime — never commit)
+backend/token.json
+
+# Node / Electron / build output
+frontend/node_modules/
+frontend/dist/
+frontend/release/
+# Vite now builds into backend/static — keep the dir but not its contents
+backend/static/*
+!backend/static/.gitkeep
+
+# OS
+.DS_Store
+Thumbs.db

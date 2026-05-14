@@ -1,0 +1,27 @@
+fastapi==0.115.5
+uvicorn[standard]==0.32.1
+python-dotenv==1.0.1
+pydantic==2.10.3
+pydantic-settings==2.7.0
+
+# AI & LangChain
+langchain==0.3.13
+langchain-openai==0.2.14
+langchain-community==0.3.13
+openai==1.58.1
+
+# Google APIs
+google-api-python-client==2.154.0
+google-auth-httplib2==0.2.0
+google-auth-oauthlib==1.2.1
+
+# Web search & browsing
+duckduckgo-search==7.5.1
+playwright==1.49.0
+
+# Messaging
+python-telegram-bot==21.8
+
+# Utilities
+httpx==0.28.1
+aiofiles==24.1.0
