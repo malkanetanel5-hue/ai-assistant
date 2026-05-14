@@ -1,0 +1,15 @@
+# Explicit runtime configuration for Railway's Nixpacks builder.
+# Without this, Nixpacks detects only Python (from requirements.txt at root)
+# and never installs Node.js, causing "npm: command not found" in build.sh.
+
+[phases.setup]
+nixPkgs = ["nodejs_20", "python311", "gcc"]
+
+[phases.install]
+cmds = []   # disabled — build.sh handles npm install + pip install
+
+[phases.build]
+cmds = ["bash build.sh"]
+
+[start]
+cmd = "cd backend && uvicorn main:app --host 0.0.0.0 --port $PORT"
