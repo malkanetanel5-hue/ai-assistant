@@ -3,7 +3,7 @@
 # and never installs Node.js, causing "npm: command not found" in build.sh.
 
 [phases.setup]
-nixPkgs = ["nodejs_20", "python311", "gcc"]
+nixPkgs = ["nodejs", "python311", "gcc"]
 
 [phases.install]
 cmds = []   # disabled — build.sh handles npm install + pip install
