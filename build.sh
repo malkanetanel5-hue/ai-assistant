@@ -16,7 +16,7 @@ echo "────────────────────────�
 echo " Step 2/3  Backend (Python deps)"
 echo "──────────────────────────────────────"
 cd backend
-python3 -m pip install -r requirements.txt
+python3 -m pip install -r requirements.txt 
 
 echo "──────────────────────────────────────"
 echo " Step 3/3  Playwright (Chromium)"
