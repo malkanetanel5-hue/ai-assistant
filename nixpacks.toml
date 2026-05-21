@@ -3,3 +3,7 @@ nixPkgs = ["python312", "python312Packages.pip", "playwright"]
 
 [phases.build]
 cmds = ["chmod +x build.sh && ./build.sh"]
+
+
+[variables]
+PYTHON_VERSION = "3.12"
