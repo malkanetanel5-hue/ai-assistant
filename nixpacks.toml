@@ -1,5 +1,1 @@
-[phases.setup]
-nixPkgs = ["python312", "python312Packages.pip"]
-
-[phases.build]
-cmds = ["chmod +x build.sh && ./build.sh"]
+# This file is empty to bypass build issues
