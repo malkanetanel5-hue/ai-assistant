@@ -1,1 +1,8 @@
-# This file is empty to bypass build issues
+[phases.setup]
+nixPkgs = ["python312", "nodejs_20"]
+
+[phases.install]
+cmds = ["pip install -r requirements.txt"]
+
+[start]
+cmd = "uvicorn backend.main:app --host 0.0.0.0 --port $PORT"
