@@ -12,7 +12,7 @@ import textwrap
 from datetime import datetime, timezone
 from typing import Optional
 
-from langchain.agents import AgentExecutor, create_openai_tools_agent
+from langchain.agents import AgentExecutor, create_structured_chat_agent
 from langchain_core.messages import AIMessage, HumanMessage
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_core.tools import tool
@@ -366,7 +366,7 @@ def _build_agent() -> AgentExecutor:
             MessagesPlaceholder("agent_scratchpad"),
         ]
     )
-    agent = create_openai_tools_agent(llm, TOOLS, prompt)
+   agent = create_structured_chat_agent(llm, TOOLS, prompt)
     return AgentExecutor(agent=agent, tools=TOOLS, verbose=True, max_iterations=8)
 
 
