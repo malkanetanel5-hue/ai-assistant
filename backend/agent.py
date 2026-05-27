@@ -16,7 +16,7 @@ from langchain.agents import AgentExecutor, create_openai_tools_agent
 from langchain_core.messages import AIMessage, HumanMessage
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_core.tools import tool
-from langchain_openai import ChatOpenAI
+from langchain_google_genai import ChatGoogleGenerativeAI
 
 from googleapiclient.discovery import build
 
@@ -351,12 +351,12 @@ TOOLS = [
     browse_page,
 ]
 
-
 def _build_agent() -> AgentExecutor:
-    llm = ChatOpenAI(
-        model="gpt-4o-mini",
+    llm = ChatGoogleGenerativeAI(
+        model="gemini-1.5-flash",
         temperature=0,
-        api_key=os.getenv("OPENAI_API_KEY"),
+        google_api_key=os.getenv("GEMINI_API_KEY"),
+    
     )
     prompt = ChatPromptTemplate.from_messages(
         [
