@@ -367,7 +367,7 @@ def _build_agent() -> AgentExecutor:
         ]
     )
    agent = create_structured_chat_agent(llm, TOOLS, prompt)
-    return AgentExecutor(agent=agent, tools=TOOLS, verbose=True, max_iterations=8)
+   return AgentExecutor(agent=agent, tools=TOOLS, verbose=True, max_iterations=8)
 
 
 _agent_instance: AgentExecutor | None = None
