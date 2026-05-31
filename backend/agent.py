@@ -356,8 +356,7 @@ def _build_agent() -> AgentExecutor:
         model="gemini-1.5-flash",
         temperature=0,
         google_api_key=os.getenv("GEMINI_API_KEY"),
-    
-    )
+           )
     prompt = ChatPromptTemplate.from_messages(
         [
             ("system", _SYSTEM),
