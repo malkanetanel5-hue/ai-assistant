@@ -352,22 +352,10 @@ TOOLS = [
 ]
 
 def _build_agent() -> AgentExecutor:
-    llm = ChatGoogleGenerativeAI(
-        model="gemini-1.5-flash",
-        temperature=0,
-        google_api_key=os.getenv("GEMINI_API_KEY"),
-           )
-    prompt = ChatPromptTemplate.from_messages(
-        [
-            ("system", _SYSTEM),
-            MessagesPlaceholder("chat_history", optional=True),
-            ("human", "{input}"),
-            MessagesPlaceholder("agent_scratchpad"),
-        ]
-    )
-   agent = create_structured_chat_agent(llm, TOOLS, prompt)
-   return AgentExecutor(agent=agent, tools=TOOLS, verbose=True, max_iterations=8)
-
+    llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", temperature=0, google_api_key=os.getenv("GEMINI_API_KEY"))
+    prompt = ChatPromptTemplate.from_messages([("system", _SYSTEM), MessagesPlaceholder("chat_history", optional=True), ("human", "{input}"), MessagesPlaceholder("agent_scratchpad")])
+    agent = create_structured_chat_agent(llm, TOOLS, prompt)
+    return AgentExecutor(agent=agent, tools=TOOLS, verbose=True, max_iterations=8)
 
 _agent_instance: AgentExecutor | None = None
 
