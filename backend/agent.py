@@ -12,7 +12,7 @@ import textwrap
 from datetime import datetime, timezone
 from typing import Optional
 
-from langchain.agents import AgentExecutor, create_structured_chat_agent
+from langchain.agents import AgentExecutor, create_react_agent
 from langchain_core.messages import AIMessage, HumanMessage
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_core.tools import tool
@@ -353,14 +353,10 @@ TOOLS = [
 
 def _build_agent() -> AgentExecutor:
     llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash", temperature=0, google_api_key=os.getenv("GEMINI_API_KEY"))
-    prompt = ChatPromptTemplate.from_messages([
-        ("system", _SYSTEM + "\n\nTools available:\n{tools}\n\nTool names: {tool_names}"),
-        MessagesPlaceholder("chat_history", optional=True),
-        ("human", "{input}"),
-        MessagesPlaceholder(variable_name="agent_scratchpad")
-    ])
-    agent = create_structured_chat_agent(llm, TOOLS, prompt)
-    return AgentExecutor(agent=agent, tools=TOOLS, verbose=True, max_iterations=8)
+    from langchain import hub
+    prompt = hub.pull("hwchase17/react")
+    agent = create_react_agent(llm, TOOLS, prompt)
+    return AgentExecutor(agent=agent, tools=TOOLS, verbose=True, max_iterations=8, handle_parsing_errors=True)
 
 _agent_instance: AgentExecutor | None = None
 
