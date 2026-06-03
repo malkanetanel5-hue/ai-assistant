@@ -4,7 +4,7 @@ import CalendarSidebar from './components/CalendarSidebar'
 import ChatPanel from './components/ChatPanel'
 import './App.css'
 
-const API = ''
+const API = 'https://web-production-82d03.up.railway.app'
 
 // Reactive media query hook
 function useIsMobile() {
