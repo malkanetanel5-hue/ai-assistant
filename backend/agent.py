@@ -357,7 +357,7 @@ def _build_agent() -> AgentExecutor:
         ("system", _SYSTEM + "\n\nTools available:\n{tools}\n\nTool names: {tool_names}"),
         MessagesPlaceholder("chat_history", optional=True),
         ("human", "{input}"),
-        MessagesPlaceholder("agent_scratchpad")
+        MessagesPlaceholder(variable_name="agent_scratchpad")
     ])
     agent = create_structured_chat_agent(llm, TOOLS, prompt)
     return AgentExecutor(agent=agent, tools=TOOLS, verbose=True, max_iterations=8)
