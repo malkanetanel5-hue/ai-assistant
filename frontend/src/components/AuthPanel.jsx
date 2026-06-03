@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 // Relative URLs — Vite proxies to :8000 in dev; same-origin in production
-const API = ''
+const API = 'https://web-production-82d03.up.railway.app'
 
 export default function AuthPanel({ onAuthChange, compact = false }) {
   const [status, setStatus] = useState(null)
