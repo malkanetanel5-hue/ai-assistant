@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import VoiceButton from './VoiceButton'
 
-const API = ''
+const API = import.meta.env.VITE_API_URL || ''
 
 const SUGGESTIONS = [
   "What's on my calendar today?",
